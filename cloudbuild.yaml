@@ -1,10 +1,10 @@
 steps:
   - name: 'gcr.io/cloud-builders/docker'
     args: ['build', '-t', 'gcr.io/fakeapp-gcp/fakenewshacklytics','.']
-    timeout: 600s
+    timeout: 6000s
   - name: 'gcr.io/cloud-builders/docker'
     args: ['push', 'gcr.io/fakeapp-gcp/fakenewshacklytics']
-    timeout: 600s
+    timeout: 6000s
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     entrypoint:  gcloud
     args: ['run','deploy','fakeapp-service','--image','gcr.io/fakeApp-gcp/fakenewshacklytics','--region','us-central1','--platform','managed']
