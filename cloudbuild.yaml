@@ -1,10 +1,10 @@
 steps:
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 'gcr.io/fakeApp-gcp/FakeNewsHacklytics2021','.']
+    args: ['build', '-t', 'gcr.io/fakeApp-gcp/fakenewshacklytics','.']
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'gcr.io/fakeApp-gcp/FakeNewsHacklytics2021']
+    args: ['push', 'gcr.io/fakeApp-gcp/fakenewshacklytics']
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     entrypoint:  gcloud
-    args: ['run','deploy','fakeapp-service','--image','gcr.io/fakeApp-gcp/FakeNewsHacklytics2021','--region','us-centrall','--platform','managed']
+    args: ['run','deploy','fakeapp-service','--image','gcr.io/fakeApp-gcp/fakenewshacklytics','--region','us-centrall','--platform','managed']
 # images:
-#   - gcr.io/fakeApp-gcp/FakeNewsHacklytics2021
+#   - gcr.io/fakeApp-gcp/fakenewshacklytics
