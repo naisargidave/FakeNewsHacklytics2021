@@ -1,0 +1,10 @@
+steps:
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'gcr.io/fakeApp-gcp/fakeapp','.']
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'gcr.io/fakeApp-gcp/fakeapp']
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint:  gcloud
+    args: ['run','deploy','fakeapp-service','--image','gcr.io/fakeApp-gcp/fakeapp','--region','us-centrall','--platform','managed']
+images:
+  - gcr.io/fakeApp-gcp/fakeapp
