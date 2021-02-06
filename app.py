@@ -34,7 +34,7 @@ class BertBinaryClassifier(nn.Module):
 
 bert_clf = BertBinaryClassifier().to(device)
 
-bert_clf.load_state_dict(torch.load('nb_state257.pth'))
+bert_clf.load_state_dict(torch.load('nb_state257.pth',map_location=torch.device('cpu')))
 tokenizer = BertTokenizer.from_pretrained('bert-base-uncased', do_lower_case=True)
 
 def predict(article):
