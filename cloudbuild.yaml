@@ -6,5 +6,5 @@ steps:
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     entrypoint:  gcloud
     args: ['run','deploy','fakeapp-service','--image','gcr.io/fakeApp-gcp/FakeNewsHacklytics2021','--region','us-centrall','--platform','managed']
-images:
-  - gcr.io/fakeApp-gcp/FakeNewsHacklytics2021
+# images:
+#   - gcr.io/fakeApp-gcp/FakeNewsHacklytics2021
